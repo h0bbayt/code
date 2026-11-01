@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+body {
+    background-color: #2D2D2D;
+    color: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+main {
+    flex: 1;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container {
+    border: 2px solid #D9D9D9;
+    border-radius: 30px;
+    padding: 50px;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+}
+
+.auth-container h1 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.form-group input:focus {
+    outline: none;
+}
+
+.btn {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    padding: 12px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.auth-link {
+    display: block;
+    margin-top: 30px;
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+footer {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: auto;
+}
