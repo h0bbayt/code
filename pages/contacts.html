@@ -4,45 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты - Клубешник</title>
-    <link rel="stylesheet" href="../css/contacts.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --font-comfortaa: 'Comfortaa', sans-serif;
+            --color-brand-dark: #2D2D2D;
+            --color-brand-gold: #FFD700;
+        }
+
+        @layer base {
+            body {
+                @apply font-comfortaa bg-brand-dark text-white min-h-screen flex flex-col;
+            }
+        }
+
+        @layer components {
+            .nav-link {
+                @apply relative pb-1 text-base text-white transition-colors duration-300;
+            }
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0; bottom: 0;
+                width: 100%; height: 2px;
+                background: #FFFFFF;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease;
+            }
+            .nav-link:hover { @apply text-brand-gold; }
+            .nav-link:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="booking.html">Бронь</a>
-            <a href="account.html">Личный кабинет</a>
+
+    <header class="px-10 py-5 flex justify-between items-center">
+        <nav class="flex gap-10 w-full justify-between">
+            <a href="index.html"    class="nav-link">Главная</a>
+            <a href="contacts.html" class="nav-link">Контакты</a>
+            <a href="booking.html"  class="nav-link">Бронь</a>
+            <a href="account.html"  class="nav-link">Личный кабинет</a>
         </nav>
     </header>
 
-    <main>
-        <div class="contacts-container">
-            <h1>Клуб "Клубешник"</h1>
-            
-            <p>Адрес: Г. Город, ул. Центральная, д. 56<br>
-            (центральный вход, сразу направо)</p>
-            
-            <p>Номер телефона: +7 800 555 35-35<br>
-            Резервный: +7 4922 55-44-12</p>
-            
-            <p>VK: @Clubeshnik<br>
-            Telegram: @clubeshnik<br>
-            E-mail: admin@clubeshnik.ru</p>
-            
-            <p style="margin-top: 30px;">Сотрудничество: clubeshnik.ru/cooperation</p>
+    <main class="flex-1 px-10 py-5">
+        <div class="max-w-[900px] mx-auto">
+            <h1 class="text-[36px] font-normal mb-[30px]">Клуб "Клубешник"</h1>
 
-            <div class="map-container">
-                <h2>Мы на яндекс картах!</h2>
-                <img src="../imgs/ymap.png" alt="Яндекс Карта" class="map-image">
+            <p class="text-[22px] leading-[1.6] mb-5">
+                Адрес: Г. Город, ул. Центральная, д. 56<br>
+                (центральный вход, сразу направо)
+            </p>
+
+            <p class="text-[22px] leading-[1.6] mb-5">
+                Номер телефона: +7 800 555 35-35<br>
+                Резервный: +7 4922 55-44-12
+            </p>
+
+            <p class="text-[22px] leading-[1.6] mb-5">
+                VK: @Clubeshnik<br>
+                Telegram: @clubeshnik<br>
+                E-mail: admin@clubeshnik.ru
+            </p>
+
+            <p class="text-[22px] leading-[1.6] mb-5 mt-[30px]">
+                Сотрудничество: clubeshnik.ru/cooperation
+            </p>
+
+            <div class="text-center mt-[50px]">
+                <h2 class="text-2xl font-normal mb-5">Мы на яндекс картах!</h2>
+                <img src="../imgs/ymap.png" alt="Яндекс Карта"
+                     class="w-full max-w-[600px] h-auto rounded-[10px] block mx-auto object-cover">
             </div>
         </div>
     </main>
 
-    <footer>
+    <footer class="px-10 py-5 flex justify-between text-sm mt-auto">
         <p>(C) Клубешник, 2026. Все права защищены</p>
         <p>Ищем поставщиков продукции! Напишите сюда: admin@clubeshnik.ru</p>
     </footer>
+
     <script src="../js/contacts.js"></script>
 </body>
 </html>

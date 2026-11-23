@@ -4,55 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет - Клубешник</title>
-    <link rel="stylesheet" href="../css/account.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --font-comfortaa: 'Comfortaa', sans-serif;
+            --color-brand-dark: #2D2D2D;
+            --color-brand-gold: #FFD700;
+        }
+
+        @layer base {
+            body {
+                @apply font-comfortaa bg-brand-dark text-white min-h-screen flex flex-col;
+            }
+        }
+
+        @layer components {
+            .nav-link {
+                @apply relative pb-1 text-base text-white transition-colors duration-300;
+            }
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0; bottom: 0;
+                width: 100%; height: 2px;
+                background: #FFFFFF;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease;
+            }
+            .nav-link:hover { @apply text-brand-gold; }
+            .nav-link:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+
+            .btn {
+                @apply inline-block bg-transparent text-white border border-[#D9D9D9]
+                       py-3 px-[30px] rounded-[10px] text-lg cursor-pointer no-underline;
+            }
+
+            .form-input {
+                @apply w-full p-[15px] bg-[#D9D9D9] border-none rounded-[10px]
+                       text-lg text-center font-comfortaa;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="booking.html">Бронь</a>
-            <a href="account.html">Личный кабинет</a>
+
+    <header class="px-10 py-5 flex justify-between items-center">
+        <nav class="flex gap-10 w-full justify-between">
+            <a href="index.html"    class="nav-link">Главная</a>
+            <a href="contacts.html" class="nav-link">Контакты</a>
+            <a href="booking.html"  class="nav-link">Бронь</a>
+            <a href="account.html"  class="nav-link">Личный кабинет</a>
         </nav>
     </header>
 
-    <main>
-        <h1 class="account-title">Аккаунт #7355608</h1>
-        
-        <div class="account-grid">
-            <div class="form-group">
-                <label>Имя</label>
-                <input type="text" value="Иван">
+    <main class="flex-1 px-10 py-5">
+        <h1 class="text-center text-[40px] font-normal mb-[50px]">Аккаунт #7355608</h1>
+
+        <div class="grid grid-cols-2 gap-[30px] max-w-[800px] mx-auto mb-[50px]">
+            <div>
+                <label class="block mb-[10px] text-xl text-center">Имя</label>
+                <input type="text" value="Иван" class="form-input">
             </div>
-            <div class="form-group">
-                <label>Фамилия</label>
-                <input type="text" value="Проворотов">
+            <div>
+                <label class="block mb-[10px] text-xl text-center">Фамилия</label>
+                <input type="text" value="Проворотов" class="form-input">
             </div>
-            <div class="form-group">
-                <label>Номер телефона</label>
-                <input type="text" value="+7 800 555 35-35">
+            <div>
+                <label class="block mb-[10px] text-xl text-center">Номер телефона</label>
+                <input type="text" value="+7 800 555 35-35" class="form-input">
             </div>
-            <div class="form-group">
-                <label>Электронная почта</label>
-                <input type="text" value="mail@example.com">
+            <div>
+                <label class="block mb-[10px] text-xl text-center">Электронная почта</label>
+                <input type="text" value="mail@example.com" class="form-input">
             </div>
         </div>
 
-        <div class="balance-section">
-            <p>Баланс: 67 рублей</p>
+        <div class="text-center text-2xl mb-[50px]">
+            <p class="mb-5">Баланс: 67 рублей</p>
             <button class="btn">Пополнить</button>
         </div>
 
-        <div class="booking-section">
-            <p>Ближайшая бронь: -</p>
+        <div class="text-center text-2xl mb-[60px]">
+            <p class="mb-5">Ближайшая бронь: -</p>
             <a href="booking.html" class="btn">Забронировать место</a>
         </div>
     </main>
 
-    <footer>
+    <footer class="px-10 py-5 flex justify-between text-sm mt-auto">
         <p>(C) Клубешник, 2026. Все права защищены</p>
         <p>Ищем поставщиков продукции! Напишите сюда: admin@clubeshnik.ru</p>
     </footer>
+
     <script src="../js/account.js"></script>
 </body>
 </html>

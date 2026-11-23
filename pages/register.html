@@ -4,40 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация - Клубешник</title>
-    <link rel="stylesheet" href="../css/register.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --font-comfortaa: 'Comfortaa', sans-serif;
+            --color-brand-dark: #2D2D2D;
+            --color-brand-gold: #FFD700;
+        }
+
+        @layer base {
+            body {
+                @apply font-comfortaa bg-brand-dark text-white min-h-screen flex flex-col;
+            }
+        }
+
+        @layer components {
+            .nav-link {
+                @apply relative pb-1 text-base text-white transition-colors duration-300;
+            }
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0; bottom: 0;
+                width: 100%; height: 2px;
+                background: #FFFFFF;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease;
+            }
+            .nav-link:hover { @apply text-brand-gold; }
+            .nav-link:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+
+            .form-input {
+                @apply w-full p-[15px] bg-[#D9D9D9] border-none rounded-[10px]
+                       text-lg font-comfortaa outline-none;
+            }
+
+            .btn {
+                @apply bg-transparent text-white border border-[#D9D9D9]
+                       py-3 px-10 rounded-[10px] cursor-pointer
+                       text-lg mt-5 font-comfortaa;
+            }
+
+            .auth-link {
+                @apply block mt-[30px] text-blue-500 no-underline text-lg;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="booking.html">Бронь</a>
-            <a href="account.html">Личный кабинет</a>
+
+    <header class="px-10 py-5 flex justify-between items-center">
+        <nav class="flex gap-10 w-full justify-between">
+            <a href="index.html"    class="nav-link">Главная</a>
+            <a href="contacts.html" class="nav-link">Контакты</a>
+            <a href="booking.html"  class="nav-link">Бронь</a>
+            <a href="account.html"  class="nav-link">Личный кабинет</a>
         </nav>
     </header>
 
-    <main>
-        <div class="auth-container">
-            <h1>Регистрация</h1>
+    <main class="flex-1 px-10 py-5 flex justify-center items-center">
+        <div class="border-2 border-[#D9D9D9] rounded-[30px] p-[50px] w-full max-w-[550px] text-center">
+            <h1 class="text-[32px] font-normal mb-10">Регистрация</h1>
+
             <form>
-                <div class="form-group">
-                    <label for="phone">Номер телефона</label>
-                    <input type="tel" id="phone" required>
+                <div class="text-left mb-[25px]">
+                    <label for="phone" class="block mb-[10px] text-xl">Номер телефона</label>
+                    <input type="tel" id="phone" required class="form-input">
                 </div>
-                <div class="form-group">
-                    <label for="password">Пароль</label>
-                    <input type="password" id="password" required>
+                <div class="text-left mb-[25px]">
+                    <label for="password" class="block mb-[10px] text-xl">Пароль</label>
+                    <input type="password" id="password" required class="form-input">
                 </div>
                 <button type="submit" class="btn">Зарегистрироваться</button>
             </form>
+
             <a href="login.html" class="auth-link">Есть аккаунт? Войти</a>
         </div>
     </main>
 
-    <footer>
+    <footer class="px-10 py-5 flex justify-between text-sm mt-auto">
         <p>(C) Клубешник, 2026. Все права защищены</p>
         <p>Ищем поставщиков продукции! Напишите сюда: admin@clubeshnik.ru</p>
     </footer>
+
     <script src="../js/register.js"></script>
 </body>
 </html>
